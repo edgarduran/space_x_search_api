@@ -17,6 +17,14 @@ class SpaceXService
     result = parse_json(client.get("rockets/#{id}"))
   end
 
+  def all_pads
+    results = parse_json(client.get("launchpads"))
+  end
+
+  def find_pad(id)
+    result = parse_json(client.get("launchpads/#{id}"))
+  end
+
   def parse_json(response)
     JSON.parse(response.body, symbolize_names: true)
   end
