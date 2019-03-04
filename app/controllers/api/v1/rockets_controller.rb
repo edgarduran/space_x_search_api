@@ -9,6 +9,4 @@ class Api::V1::RocketsController < ApplicationController
   def show
     @rocket = SpaceXRockets.find(id: params[:id])
   end
-
-  private
 end
