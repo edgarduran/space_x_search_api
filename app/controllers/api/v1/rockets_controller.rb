@@ -10,6 +10,12 @@ class Api::V1::RocketsController < ApplicationController
 
   private
 
+  def save_search
+    search = params[:id]
+
+    Search.create(query: search, query_type: 'rockets') if search
+  end
+
   def space_x_service
     SpaceXService.new
   end

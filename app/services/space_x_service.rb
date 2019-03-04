@@ -25,6 +25,18 @@ class SpaceXService
     result = parse_json(client.get("launchpads/#{id}"))
   end
 
+  def all_launches
+    results = parse_json(client.get("launches"))
+  end
+
+  def find_launch(id)
+    result = parse_json(client.get("launches/#{id}"))
+  end
+
+  def search(options={})
+    results = parse_json(client.get("launches"))
+  end
+
   def parse_json(response)
     JSON.parse(response.body, symbolize_names: true)
   end

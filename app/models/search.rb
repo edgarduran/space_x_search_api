@@ -5,10 +5,10 @@ class Search < ApplicationRecord
     launches: 'launches'
   }
 
-  validates :type, inclusion: {
+  validates :query_type, inclusion: {
     in: Search::SEARCH_TYPE.values,
     message: 'not a valid search type'
   }
+  validates :query, :query_type, presence: :true
 
-  validates :query, :type, presence: :true
 end
