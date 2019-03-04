@@ -11,10 +11,4 @@ class Api::V1::RocketsController < ApplicationController
   end
 
   private
-
-  def save_search
-    search = params[:id]
-
-    Search.create(query: search, query_type: 'rockets') if search
-  end
 end
