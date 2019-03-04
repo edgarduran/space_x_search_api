@@ -9,6 +9,18 @@ class SpaceXService
     end
   end
 
+  def get_all(options={})
+    results = parse_json(client.get(options[:model]))
+  end
+
+  def query(options={})
+    results = parse_json(client.get("#{options[:model]}/#{options[:id]}"))
+  end
+
+  def query_params(options={})
+
+  end
+
   def all_rockets
     results = parse_json(client.get("rockets"))
   end

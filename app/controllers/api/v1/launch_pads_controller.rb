@@ -1,17 +1,20 @@
+require  "#{Rails.root}/lib/space_x/space_x_launch_pads"
+
 class Api::V1::LaunchPadsController < ApplicationController
 
   def index
-    @pads = space_x_service.all_pads
+    @pads = SpaceXLaunchPads.all
   end
 
   def show
-    @pad = space_x_service.find_pad(params[:id])
+    @pad = SpaceXLaunchPads.find(id: params[:id])
   end
 
   private
 
   def save_search
     search = params[:id]
+
 
     Search.create(query: search, query_type: 'launches') if search
   end

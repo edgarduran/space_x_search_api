@@ -1,11 +1,13 @@
+require  "#{Rails.root}/lib/space_x/space_x_rockets"
+
 class Api::V1::RocketsController < ApplicationController
 
   def index
-    @rockets = space_x_service.all_rockets
+    @rockets = SpaceXRockets.all
   end
 
   def show
-    @rocket = space_x_service.find_rocket(params[:id])
+    @rocket = SpaceXRockets.find(id: params[:id])
   end
 
   private
@@ -14,9 +16,5 @@ class Api::V1::RocketsController < ApplicationController
     search = params[:id]
 
     Search.create(query: search, query_type: 'rockets') if search
-  end
-
-  def space_x_service
-    SpaceXService.new
   end
 end
