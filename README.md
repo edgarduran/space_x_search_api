@@ -3,22 +3,20 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+* Ruby (2.5.3)
+* Rails (5.2.2)
 
-* Ruby version
+Deployed to [Heroku](https://space-x-search-api.herokuapp.com)
 
-* System dependencies
+Models:
+1. Launches
+  - Index - /api/v1/launches
+  - Show - /api/v1/launches?id={{flight_number}}
+2. Rockets
+  - Index - /api/v1/rockets
+  - Show - /api/v1/rockets?id={{rocket_id}}
+3. Launch Pads
+  - Index - /api/v1/launch_pads
+  - Show - /api/v1/launch_pads?id={{site_id}}
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+SpaceX API [Documentation](https://docs.spacexdata.com/)
